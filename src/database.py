@@ -1,4 +1,7 @@
 import sqlite3
+from pathlib import Path
+
+
 
 # FUNCTIONS ARE EXECUTED IN app.py
 # variables to create tables
@@ -116,8 +119,11 @@ WHERE user_id = ?
 ORDER BY exercise_name
 ;"""
 
+# database path
+DB_PATH = Path(__file__).resolve().parent.parent / "data" / "training_logs.db"
+
 # database must be created (if it does not exist) and we must connect to it
-connection = sqlite3.connect("data_training.db")
+connection = sqlite3.connect(DB_PATH)
 
 
 # function to create tables
